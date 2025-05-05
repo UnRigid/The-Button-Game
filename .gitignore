@@ -8,6 +8,7 @@
 /TheButtonGame/[Oo]bj/
 /TheButtonGame/[Tt]emp/
 /TheButtonGame/[Uu]nityGenerated/
+*.log
 # file on crash reports
 sysinfo.txt
 # Unity3D generated meta files
@@ -39,3 +40,4 @@ sysinfo.txt
 Icon?
 ehthumbs.db
 Thumbs.db
+
