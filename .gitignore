@@ -1,13 +1,19 @@
 ###
 # Unity folders and files
 ###
+.utmp/
 /TheButtonGame/[Aa]ssets/AssetStoreTools*
 /TheButtonGame/[Bb]uild/
+/TheButtonGame/[Bb]uilds/
 /TheButtonGame/[Ll]ibrary/
 /TheButtonGame/[Ll]ocal[Cc]ache/
+/TheButtonGame/[Ll]ogs/
 /TheButtonGame/[Oo]bj/
 /TheButtonGame/[Tt]emp/
 /TheButtonGame/[Uu]nityGenerated/
+/TheButtonGame/[Uu]ser[Ss]ettings/
+/TheButtonGame/[Mm]emoryCaptures/
+/TheButtonGame/[Rr]ecordings/
 *.log
 # file on crash reports
 sysinfo.txt
@@ -40,4 +46,5 @@ sysinfo.txt
 Icon?
 ehthumbs.db
 Thumbs.db
-
+.vs/
+.gradle/
