@@ -83,7 +83,7 @@ public class SpecialInteractions : MonoBehaviour
 
         }
         //Play Sound
-        audioSource.PlayOneShot(DialogueClips[Index], 1);
+        audioSource.PlayOneShot(DialogueClips[Index], Settings.volume);
         await Task.Delay((int) (DialogueClips[Index].length * 1000));
         Captions.transform.gameObject.SetActive(false);
         await Task.Yield();

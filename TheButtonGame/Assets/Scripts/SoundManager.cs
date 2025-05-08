@@ -18,8 +18,8 @@ public class SoundManager : MonoBehaviour
     }
 
 
-    public static void PlaySound(/* Sound to play; Volume */ SoundType sound, float volume=1){
-        instance.audioSource.PlayOneShot(instance.SoundList[(int) sound], volume);
+    public static void PlaySound(/* Sound to play; Volume */ SoundType sound){
+        instance.audioSource.PlayOneShot(instance.SoundList[(int) sound], Settings.volume);
     }
 
 }

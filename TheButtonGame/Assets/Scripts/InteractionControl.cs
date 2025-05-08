@@ -58,7 +58,7 @@ public class InteractionControl : MonoBehaviour
 
     void DebugMulti(InputAction.CallbackContext callbackContext){
         Debug.Log("Debug Triggered");
-        SoundManager.PlaySound(SoundType.ButtonPress, 1);
+        SoundManager.PlaySound(SoundType.ButtonPress);
     }
 
     void OnDrawGizmos(){
