@@ -27,7 +27,7 @@ public class SettingsManager : MonoBehaviour
     public void UpdateVolume(float SetVolume)
     {
         Settings.volume = SetVolume;
-        VolumeDisplay.text = Settings.volume.ToString("00") + "%";
+        VolumeDisplay.text = (Settings.volume * 100).ToString("00") + "%";
     }
 
     public void UpdateResolution(int ResInd){

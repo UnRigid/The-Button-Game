@@ -9,6 +9,7 @@ public class InteractionControl : MonoBehaviour
     private Camera _CamComponent;
     private PlayerControls _PlayerControls;
     [SerializeField]private GameObject InteractHolder;
+    [SerializeField]private GameObject PauseMenu;
     
     [SerializeField]private float MaxDistance = 2f;
 
@@ -16,11 +17,16 @@ public class InteractionControl : MonoBehaviour
     private void Start() {
         _CamObject = GameObject.FindGameObjectWithTag("MainCamera");
         _CamComponent = _CamObject.GetComponent<Camera>();
+        PauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         
         _PlayerControls = new PlayerControls();
         _PlayerControls.PlayerInteractions.Enable();
         _PlayerControls.PlayerInteractions.Interact.performed += TriggerInteract;
         _PlayerControls.PlayerInteractions.DebugMultikey.performed += DebugMulti;
+        _PlayerControls.PlayerInteractions.Pause.performed += TogglePause;
+
+        PauseMenu.SetActive(false);
+        
 
         InteractHolder = GameObject.FindGameObjectWithTag("InteractHolder");
         InteractHolder.SetActive(false);
@@ -59,6 +65,22 @@ public class InteractionControl : MonoBehaviour
     void DebugMulti(InputAction.CallbackContext callbackContext){
         Debug.Log("Debug Triggered");
         SoundManager.PlaySound(SoundType.ButtonPress);
+    }
+
+
+    void TogglePause(InputAction.CallbackContext callbackContext){
+        bool IsPaused = PauseMenu.activeSelf;
+        if(IsPaused){
+            Time.timeScale = 1;//unpause
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }else{
+            Time.timeScale = 0;//pause
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        PauseMenu.SetActive(!IsPaused);
+
     }
 
     void OnDrawGizmos(){

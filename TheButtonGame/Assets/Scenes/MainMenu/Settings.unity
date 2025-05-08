@@ -383,7 +383,7 @@ MonoBehaviour:
   FullscreenToggle: {fileID: 617844448}
   BackButton: {fileID: 1199485187}
   VolumeSlider: {fileID: 715180731}
-  VolumeDisplay: {fileID: 0}
+  VolumeDisplay: {fileID: 1653488574}
 --- !u!4 &680499498
 Transform:
   m_ObjectHideFlags: 0

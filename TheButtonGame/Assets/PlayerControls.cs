@@ -200,6 +200,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""633c1e5e-602c-455e-8b1a-4c47773e84db"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -224,6 +233,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""DebugMultikey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e3f3ba6-c4e6-484b-b53e-804affe3c7ff"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""65bdbb04-bd19-4ee2-be7a-389ba8ed9136"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -244,6 +275,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerInteractions = asset.FindActionMap("PlayerInteractions", throwIfNotFound: true);
         m_PlayerInteractions_Interact = m_PlayerInteractions.FindAction("Interact", throwIfNotFound: true);
         m_PlayerInteractions_DebugMultikey = m_PlayerInteractions.FindAction("DebugMultikey", throwIfNotFound: true);
+        m_PlayerInteractions_Pause = m_PlayerInteractions.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -434,6 +466,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IPlayerInteractionsActions> m_PlayerInteractionsActionsCallbackInterfaces = new List<IPlayerInteractionsActions>();
     private readonly InputAction m_PlayerInteractions_Interact;
     private readonly InputAction m_PlayerInteractions_DebugMultikey;
+    private readonly InputAction m_PlayerInteractions_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerInteractions".
     /// </summary>
@@ -453,6 +486,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerInteractions/DebugMultikey".
         /// </summary>
         public InputAction @DebugMultikey => m_Wrapper.m_PlayerInteractions_DebugMultikey;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerInteractions/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_PlayerInteractions_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -485,6 +522,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @DebugMultikey.started += instance.OnDebugMultikey;
             @DebugMultikey.performed += instance.OnDebugMultikey;
             @DebugMultikey.canceled += instance.OnDebugMultikey;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -502,6 +542,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @DebugMultikey.started -= instance.OnDebugMultikey;
             @DebugMultikey.performed -= instance.OnDebugMultikey;
             @DebugMultikey.canceled -= instance.OnDebugMultikey;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -591,5 +634,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDebugMultikey(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
     }
 }
