@@ -12,10 +12,10 @@ public class SpecialInteractions : MonoBehaviour
     [SerializeField] AudioClip[] DialogueClips;
     AudioSource audioSource;
 
-    string[] dialogue = {"You really aren't interested in what’s behind that cool corner there?", 
-    "Yeah there’s actually nothing here.", 
-    "Yeah There’s actually nothing here you’re stuck forever.",
-    "Dammit"};
+    string[] dialogue = {"Wow you really aren't even a little interested in what's behind that cool corner?", 
+    "Yeah there's actually nothing over here.", 
+    "So there's actually nothing over here and you're stuck forever.",
+    "Well I guess that didn't work."};
 
 
     private void Start() {
@@ -50,6 +50,7 @@ public class SpecialInteractions : MonoBehaviour
                 else if(!Button && Corner){
                     //Play dialogue
                     PlayDialogue(3);
+                    Button = true;
                 }
                 //Button == 1 && Corner == 1: Second sequence, do nothing
                 

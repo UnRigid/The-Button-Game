@@ -25,6 +25,7 @@ public class SettingsManager : MonoBehaviour
 
 
     public void GoBack(){
+        SaveManager.SaveSettings();
         SceneManager.LoadScene(Settings.OriginIndex);
     }
 
@@ -46,6 +47,10 @@ public class SettingsManager : MonoBehaviour
 
     public void UpdateFullscreen(bool IsFull){
         Screen.fullScreen = IsFull;
+    }
+
+    public void WipeS(){
+        SaveManager.Wipe();
     }
 
 }

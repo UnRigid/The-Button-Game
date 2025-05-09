@@ -8,5 +8,7 @@ public static class Settings
     public static int OriginIndex=0;
 
     public static float Sensitivity = .7f;
+
+    public static bool initial_load = true;
     
 }

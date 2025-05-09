@@ -659,7 +659,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1002,10 +1002,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DialogueClips:
-  - {fileID: 8300000, guid: f89c209416c0dc947af05b795a298c12, type: 3}
-  - {fileID: 8300000, guid: 1120ebb573a85fa4f983ac0681e65f2f, type: 3}
-  - {fileID: 8300000, guid: ab6e348df7edfe249ac3bf6ac29767f9, type: 3}
-  - {fileID: 8300000, guid: 4f86d96d286e713448122848cb9eccfb, type: 3}
+  - {fileID: 8300000, guid: 3b693b86240deff4785671b73983e5e0, type: 3}
+  - {fileID: 8300000, guid: e70a3ef58b8fd5448aea09686834544a, type: 3}
+  - {fileID: 8300000, guid: 17e403669bd6d8745b311ae86b88a1aa, type: 3}
+  - {fileID: 8300000, guid: eced438ea82815d4db120d5cac34f550, type: 3}
 --- !u!1 &1846532641
 GameObject:
   m_ObjectHideFlags: 0

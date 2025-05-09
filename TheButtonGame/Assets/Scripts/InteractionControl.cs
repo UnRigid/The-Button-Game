@@ -13,7 +13,6 @@ public class InteractionControl : MonoBehaviour
     private Button MainMenuButton;
     private Button QuitButton;
     private Button SettingsButton;
-
     [SerializeField]private GameObject InteractHolder;
     [SerializeField]private GameObject PauseMenu;
     
@@ -54,12 +53,15 @@ public class InteractionControl : MonoBehaviour
     }
 
     private void Update() {
-        if(GetInteractable() != null){
-            InteractHolder.SetActive(true);
+        if(!PauseMenu.activeSelf){
+            if(GetInteractable() != null){
+                InteractHolder.SetActive(true);
 
-        }else{
-            InteractHolder.SetActive(false);
+            }else{
+                InteractHolder.SetActive(false);
+            }
         }
+        
     }
 
     
@@ -99,12 +101,19 @@ public class InteractionControl : MonoBehaviour
         if(IsPaused){
             Time.timeScale = 1;//unpause
             
+            AudioListener.pause = false;
             
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            
         }else{
             Time.timeScale = 0;//pause
             
+            if(InteractHolder.activeSelf){
+                InteractHolder.SetActive(false);
+            }
+
+            AudioListener.pause = true;
             
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

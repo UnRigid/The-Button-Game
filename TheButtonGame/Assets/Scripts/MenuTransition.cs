@@ -3,14 +3,15 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class MenuTransition : MonoBehaviour
 {
-    bool FirstLoad = true;
+    
 
     
 
     public void Clicked(GameObject thisObject){
         switch(thisObject.name){
             case"Play":
-                if(FirstLoad){
+                if(Settings.initial_load){
+                    Settings.initial_load = false;
                     SceneManager.LoadScene("Corridor1");
 
                 }else{
