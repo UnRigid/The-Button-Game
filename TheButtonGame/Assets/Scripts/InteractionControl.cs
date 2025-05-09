@@ -1,6 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InteractionControl : MonoBehaviour
 {
@@ -8,6 +10,10 @@ public class InteractionControl : MonoBehaviour
     private GameObject _CamObject;
     private Camera _CamComponent;
     private PlayerControls _PlayerControls;
+    private Button MainMenuButton;
+    private Button QuitButton;
+    private Button SettingsButton;
+
     [SerializeField]private GameObject InteractHolder;
     [SerializeField]private GameObject PauseMenu;
     
@@ -15,21 +21,36 @@ public class InteractionControl : MonoBehaviour
 
 
     private void Start() {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         _CamObject = GameObject.FindGameObjectWithTag("MainCamera");
         _CamComponent = _CamObject.GetComponent<Camera>();
         PauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+
+        MainMenuButton = PauseMenu.transform.GetChild(0).GetChild(0).GetComponent<Button>();
+        SettingsButton = PauseMenu.transform.GetChild(0).GetChild(1).GetComponent<Button>();
+        QuitButton = PauseMenu.transform.GetChild(0).GetChild(2).GetComponent<Button>();
+
+        MainMenuButton.onClick.AddListener(ReturnMainMenu);
+        SettingsButton.onClick.AddListener(OptionsFromPause);
+        QuitButton.onClick.AddListener(Quit);
         
         _PlayerControls = new PlayerControls();
         _PlayerControls.PlayerInteractions.Enable();
         _PlayerControls.PlayerInteractions.Interact.performed += TriggerInteract;
         _PlayerControls.PlayerInteractions.DebugMultikey.performed += DebugMulti;
-        _PlayerControls.PlayerInteractions.Pause.performed += TogglePause;
+        _PlayerControls.PlayerInteractions.Pause.performed += TogglePauseByPlayer;
 
         PauseMenu.SetActive(false);
         
 
         InteractHolder = GameObject.FindGameObjectWithTag("InteractHolder");
         InteractHolder.SetActive(false);
+
+        if(Settings.OriginIndex == GameObject.GetScene(gameObject.GetInstanceID()).buildIndex){
+            TogglePause();
+        }
     }
 
     private void Update() {
@@ -40,6 +61,8 @@ public class InteractionControl : MonoBehaviour
             InteractHolder.SetActive(false);
         }
     }
+
+    
 
     void TriggerInteract(InputAction.CallbackContext callbackContext){
         Transform transform = GetInteractable();
@@ -67,20 +90,45 @@ public class InteractionControl : MonoBehaviour
         SoundManager.PlaySound(SoundType.ButtonPress);
     }
 
+    void TogglePauseByPlayer(InputAction.CallbackContext callbackContext){
+        TogglePause();
+    }
 
-    void TogglePause(InputAction.CallbackContext callbackContext){
+    void TogglePause(){
         bool IsPaused = PauseMenu.activeSelf;
         if(IsPaused){
             Time.timeScale = 1;//unpause
+            
+            
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }else{
             Time.timeScale = 0;//pause
+            
+            
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
         PauseMenu.SetActive(!IsPaused);
 
+    }
+
+    public void ReturnMainMenu(){
+        Time.timeScale = 1;
+        SceneManager.LoadSceneAsync(0);
+        
+    }
+
+    public void OptionsFromPause(){
+        Time.timeScale = 1;
+        Settings.OriginIndex = GameObject.GetScene(gameObject.GetInstanceID()).buildIndex;
+        
+        SceneManager.LoadSceneAsync("Settings");
+        
+    }
+
+    public void Quit(){
+        Application.Quit();
     }
 
     void OnDrawGizmos(){
@@ -97,8 +145,10 @@ public class InteractionControl : MonoBehaviour
 
     
     private void OnDestroy() {
-                _PlayerControls.PlayerInteractions.Disable();
-
+        _PlayerControls.PlayerInteractions.Disable();
+        MainMenuButton.onClick.RemoveListener(ReturnMainMenu);
+        SettingsButton.onClick.RemoveListener(OptionsFromPause);
+        QuitButton.onClick.RemoveListener(Quit);
     }
 }
 

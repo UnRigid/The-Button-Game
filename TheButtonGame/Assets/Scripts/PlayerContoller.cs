@@ -8,7 +8,7 @@ public class PlayerContoller : MonoBehaviour
     private PlayerControls _PlayerControls;
     [Header("Movement")]
     public float MoveSpd=5f;
-    [Range(0f,1f), SerializeField]private float Sensitivity = .7f;
+    
     
     [SerializeField] float LookMultiplier = 15f;
     public float MaxAngle = 80f;
@@ -21,8 +21,7 @@ public class PlayerContoller : MonoBehaviour
         _PlayerControls = new PlayerControls();
         _PlayerControls.PlayerMovement.Enable();
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        
 
         
 
@@ -45,8 +44,8 @@ public class PlayerContoller : MonoBehaviour
 
     private void Look(){
         Vector2 _InputRead = _PlayerControls.PlayerMovement.Look.ReadValue<Vector2>();
-        float _xDelta = _InputRead.x * Sensitivity * .5f * Time.fixedDeltaTime * LookMultiplier;
-        float _yDelta = _InputRead.y * Sensitivity * .5f * Time.fixedDeltaTime * LookMultiplier;
+        float _xDelta = _InputRead.x * Settings.Sensitivity * .5f * Time.fixedDeltaTime * LookMultiplier;
+        float _yDelta = _InputRead.y * Settings.Sensitivity * .5f * Time.fixedDeltaTime * LookMultiplier;
         
         //Lateral Rotation
         this.transform.Rotate(Vector3.up, _xDelta);
