@@ -3,12 +3,12 @@ using System;
 public class ExitBroadcast : StateMachineBehaviour
 {
     
-    public static event Action NextLevel;
+    public static event Action Pressed_Button;
 
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        NextLevel?.Invoke();
+        Pressed_Button?.Invoke();
     }
 
     

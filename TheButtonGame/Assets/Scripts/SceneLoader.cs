@@ -5,7 +5,7 @@ public class SceneLoader : MonoBehaviour
 {
     
     private void OnEnable() {
-        ExitBroadcast.NextLevel += LoadNextScene;
+        IntroLevel.LoadNext += LoadNextScene;
     }
 
     void LoadNextScene(){

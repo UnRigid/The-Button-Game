@@ -19,6 +19,9 @@ public class SaveManager : MonoBehaviour
 
             string json = JsonUtility.ToJson(playerProgress);
             File.WriteAllText(SavesFile, json);
+
+            SaveSettings();
+            Debug.Log("Done");
         }
         ReadSettings();
     }
@@ -44,6 +47,7 @@ public class SaveManager : MonoBehaviour
         Settings.ResolutionIndex = playerSettings.ResolutionIndex;
         Settings.Sensitivity = playerSettings.Sensitivity;
         Settings.initial_load = playerSettings.init_load;
+        Settings.Slot = playerSettings.Slot;
     }
 
     public static void SaveProgress(int Slot, int Index){
@@ -86,13 +90,17 @@ public class SaveManager : MonoBehaviour
             volume  =.7f ,
             ResolutionIndex = 1 ,
             Sensitivity = .7f ,
-            init_load = true
-
+            init_load = true,
+            Slot = 1
         };
+
+        string json = JsonUtility.ToJson(playerSettings);
+        File.WriteAllText(SettingsFile, json);
 
         ClearSave(1);
         ClearSave(2);
 
+        Debug.Log("Wiped");
 
     }
 
@@ -109,7 +117,6 @@ public class SaveManager : MonoBehaviour
 
         File.WriteAllText(SavesFile, json);
 
-
     }
 
     private class PlayerProgress{
@@ -123,6 +130,7 @@ public class SaveManager : MonoBehaviour
         public int ResolutionIndex;
         public float Sensitivity;
         public bool init_load;
+        public int Slot=1;
     }
 
 }

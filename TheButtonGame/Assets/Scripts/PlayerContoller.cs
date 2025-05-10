@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 public class PlayerContoller : MonoBehaviour
 {
     
@@ -22,7 +23,7 @@ public class PlayerContoller : MonoBehaviour
         _PlayerControls.PlayerMovement.Enable();
 
         
-
+        SaveManager.SaveProgress(Settings.Slot, SceneManager.GetActiveScene().buildIndex);
         
 
     }
@@ -66,6 +67,8 @@ public class PlayerContoller : MonoBehaviour
         PlayerViewCam.transform.localEulerAngles = new  Vector3(_yRot, 0,0);
         
     }
+
+    
 
 
     private void OnDestroy() {

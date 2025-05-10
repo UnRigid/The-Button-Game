@@ -10,5 +10,7 @@ public static class Settings
     public static float Sensitivity = .7f;
 
     public static bool initial_load = true;
+
+    public static int Slot = 1;
     
 }
