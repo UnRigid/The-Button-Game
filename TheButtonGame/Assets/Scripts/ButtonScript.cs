@@ -13,6 +13,7 @@ public class ButtonScript : MonoBehaviour, IInteraction
 
 
     public void Interact(){
+        InteractionControl.IsInteracting = true;
         animator.SetTrigger(-2075743765); // ID for animator parameter PressButton is -2075743765.
         
     }

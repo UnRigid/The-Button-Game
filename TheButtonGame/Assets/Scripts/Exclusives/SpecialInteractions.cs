@@ -8,9 +8,11 @@ public class SpecialInteractions : MonoBehaviour
     Camera cameraComp;
     bool Button = false;
     bool Corner = false;
-    TMP_Text Captions;
+    static TMP_Text Captions;
     [SerializeField] AudioClip[] DialogueClips;
-    AudioSource audioSource;
+    static AudioSource audioSource;
+
+    public static SpecialInteractions instance;
 
     string[] dialogue = {"Wow you really aren't even a little interested in what's behind that cool corner?", 
     "Yeah there's actually nothing over here.", 
@@ -18,6 +20,13 @@ public class SpecialInteractions : MonoBehaviour
     "Well I guess that didn't work."};
 
     private void Awake() {
+
+        if(instance != null && instance != this){
+            Destroy(this);
+        }else{
+            instance = this;
+        }
+
         cameraComp = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         Captions = GameObject.FindGameObjectWithTag("Captions").GetComponent<TMP_Text>();
         Captions.transform.gameObject.SetActive(false);
@@ -86,7 +95,10 @@ public class SpecialInteractions : MonoBehaviour
         //Play Sound
         audioSource.PlayOneShot(DialogueClips[Index], Settings.volume);
         await Task.Delay((int) (DialogueClips[Index].length * 1000));
-        Captions.transform.gameObject.SetActive(false);
+        if(Captions.transform.gameObject != null){
+            Captions.transform.gameObject.SetActive(false);
+
+        }
         await Task.Yield();
     }
 

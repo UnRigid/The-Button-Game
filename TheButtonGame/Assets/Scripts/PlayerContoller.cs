@@ -6,7 +6,7 @@ public class PlayerContoller : MonoBehaviour
     
     private Rigidbody PlayerRB;
     private GameObject PlayerViewCam;
-    private PlayerControls _PlayerControls;
+    private static PlayerControls _PlayerControls;
     [Header("Movement")]
     public float MoveSpd=5f;
     
@@ -14,6 +14,16 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] float LookMultiplier = 15f;
     public float MaxAngle = 80f;
     public float MinAngle = 80f;
+
+    private void Awake() {
+        GameObject[] PlayerInstances = GameObject.FindGameObjectsWithTag("Player");
+        foreach(GameObject Instance in PlayerInstances){
+            if(Instance != gameObject){
+                Destroy(Instance);
+            }
+        }
+        
+    }
 
     private void Start() {
         PlayerRB = GetComponent<Rigidbody>();

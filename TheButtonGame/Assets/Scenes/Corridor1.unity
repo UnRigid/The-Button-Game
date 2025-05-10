@@ -374,6 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e58b646b1f08d94bac6af652990a22a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 1551463528}
   audioClip: {fileID: 8300000, guid: 73c8d43619d712c4facecee333160ddd, type: 3}
   SubtitleObj: {fileID: 1164689282}
 --- !u!1 &985070381

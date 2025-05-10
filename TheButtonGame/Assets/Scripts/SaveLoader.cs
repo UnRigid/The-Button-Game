@@ -6,6 +6,7 @@ public class SaveLoader : MonoBehaviour
     
     public void LoadSave(int Slot){
         Settings.Slot = Slot;
+        // System.GC.Collect();
         SceneManager.LoadScene(SaveManager.ReadProgress(Slot));
     }
 

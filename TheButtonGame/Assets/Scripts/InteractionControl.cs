@@ -9,14 +9,16 @@ public class InteractionControl : MonoBehaviour
     
     private GameObject _CamObject;
     private Camera _CamComponent;
-    private PlayerControls _PlayerControls;
-    private Button MainMenuButton;
-    private Button QuitButton;
-    private Button SettingsButton;
+    private static PlayerControls _PlayerControls;
+    private static Button MainMenuButton;
+    private static Button QuitButton;
+    private static Button SettingsButton;
     [SerializeField]private GameObject InteractHolder;
     [SerializeField]private GameObject PauseMenu;
     
     [SerializeField]private float MaxDistance = 2f;
+
+    public static bool IsInteracting = false;
 
 
     private void Start() {
@@ -43,7 +45,7 @@ public class InteractionControl : MonoBehaviour
 
         PauseMenu.SetActive(false);
         
-
+        IsInteracting = false;
         InteractHolder = GameObject.FindGameObjectWithTag("InteractHolder");
         InteractHolder.SetActive(false);
 
@@ -54,7 +56,7 @@ public class InteractionControl : MonoBehaviour
 
     private void Update() {
         if(!PauseMenu.activeSelf){
-            if(GetInteractable() != null){
+            if(GetInteractable() != null && !IsInteracting){
                 InteractHolder.SetActive(true);
 
             }else{
@@ -69,7 +71,7 @@ public class InteractionControl : MonoBehaviour
     void TriggerInteract(InputAction.CallbackContext callbackContext){
         Transform transform = GetInteractable();
         if(transform  != null){
-            if(transform.TryGetComponent(out IInteraction interaction)){
+            if(transform.TryGetComponent(out IInteraction interaction) && !IsInteracting){
                 interaction.Interact();
             }
         }
@@ -79,8 +81,7 @@ public class InteractionControl : MonoBehaviour
         Ray ray = _CamComponent.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         
     
-        RaycastHit hit;
-        if(Physics.Raycast(ray, out hit, MaxDistance, 1 << 7)){
+        if(Physics.Raycast(ray, out RaycastHit hit, MaxDistance, 1 << 7)){
             return hit.transform;
         }else{
             return null;
@@ -89,7 +90,7 @@ public class InteractionControl : MonoBehaviour
 
     void DebugMulti(InputAction.CallbackContext callbackContext){
         Debug.Log("Debug Triggered");
-        SoundManager.PlaySound(SoundType.ButtonPress);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
     }
 
     void TogglePauseByPlayer(InputAction.CallbackContext callbackContext){
@@ -124,6 +125,7 @@ public class InteractionControl : MonoBehaviour
 
     public void ReturnMainMenu(){
         Time.timeScale = 1;
+        AudioListener.pause = false;    
         SceneManager.LoadSceneAsync(0);
         
     }

@@ -86,16 +86,15 @@ public class SaveManager : MonoBehaviour
     }
 
     public static void Wipe(){
-        PlayerSettings playerSettings = new PlayerSettings{
-            volume  =.7f ,
-            ResolutionIndex = 1 ,
-            Sensitivity = .7f ,
-            init_load = true,
-            Slot = 1
-        };
+        
 
-        string json = JsonUtility.ToJson(playerSettings);
-        File.WriteAllText(SettingsFile, json);
+        Settings.volume = .7f;
+        Settings.ResolutionIndex = 1;
+        Settings.Sensitivity = .7f;
+        Settings.initial_load = true;
+        Settings.Slot = 1;
+
+        SaveSettings();
 
         ClearSave(1);
         ClearSave(2);
