@@ -12,7 +12,6 @@ public class IntroLevel : MonoBehaviour
     [SerializeField]AudioClip audioClip;
     string Subtitles = "Do not press the big red button.";
     static GameObject SubtitleObj;
-    public static event Action LoadNext;
 
     private void Awake() {
 
@@ -56,7 +55,7 @@ public class IntroLevel : MonoBehaviour
 
         }
         await Task.Delay(100);
-        LoadNext?.Invoke();
+        Settings.loadNextScene?.Invoke();
         await Task.Yield();
     }
 

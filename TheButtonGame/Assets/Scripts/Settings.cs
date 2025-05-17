@@ -12,5 +12,7 @@ public static class Settings
     public static bool initial_load = true;
 
     public static int Slot = 1;
-    
+
+    public delegate void LoadNextScene();  
+    public static LoadNextScene loadNextScene;  
 }
