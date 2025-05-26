@@ -14,16 +14,20 @@ public class SpecialInteractions : MonoBehaviour
 
     public static SpecialInteractions instance;
 
-    string[] dialogue = {"Wow you really aren't even a little interested in what's behind that cool corner?", 
-    "Yeah there's actually nothing over here.", 
+    string[] dialogue = {"Wow you really aren't even a little interested in what's behind that cool corner?",
+    "Yeah there's actually nothing over here.",
     "So there's actually nothing over here and you're stuck forever.",
     "Well I guess that didn't work."};
 
-    private void Awake() {
+    private void Awake()
+    {
 
-        if(instance != null && instance != this){
+        if (instance != null && instance != this)
+        {
             Destroy(this);
-        }else{
+        }
+        else
+        {
             instance = this;
         }
 
@@ -33,69 +37,83 @@ public class SpecialInteractions : MonoBehaviour
         Captions.text = "";
 
         audioSource = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<AudioSource>();
-    }
-    
 
-    private void Update() {
+        ExitBroadcast.Pressed_Button += Settings.Load;
+    }
+
+
+    private void Update()
+    {
         SeePOI();
+
+
     }
 
-    void SeePOI(){
-        switch(CheckView().name){
+    void SeePOI()
+    {
+        switch (CheckView().name)
+        {
 
-            
-            
+
+
             case "ColliderButton": //Looking at the button
-                
+
                 //Button == 0 && Corner == 0: Havent looked at either, set Button to true, I = 0
-                if( !Button && !Corner ){
+                if (!Button && !Corner)
+                {
                     Button = true;
                     PlayDialogue(0);
-                    
+
 
                     //play dialogue
                 }
                 //Button == 0 && Corner == 1: Have looked at corner, normal sequence, I = 3
-                else if(!Button && Corner){
+                else if (!Button && Corner)
+                {
                     //Play dialogue
                     PlayDialogue(3);
                     Button = true;
                 }
                 //Button == 1 && Corner == 1: Second sequence, do nothing
-                
+
                 //Button == 1 && Corner == 0: nothing
 
-            break;
+                break;
 
             case "ColliderCross":  //Looking at the Corner
-                if(!Button && !Corner){
+                if (!Button && !Corner)
+                {
                     Corner = true;
                     PlayDialogue(2);
                     //play dialogue, I = 2
                 }
-                else if(Button && !Corner){
+                else if (Button && !Corner)
+                {
                     Corner = true;
                     PlayDialogue(1);
                     //play dialogue, I = 1
                 }
-            break;
+                break;
 
             default:
-            break;
+                break;
         }
     }
 
-    async void PlayDialogue(int Index){
+    async void PlayDialogue(int Index)
+    {
         Captions.text = dialogue[Index];
         Captions.transform.gameObject.SetActive(true);
-        if(audioSource.isPlaying){
+        if (audioSource.isPlaying)
+        {
             audioSource.Stop();
 
         }
         //Play Sound
         audioSource.PlayOneShot(DialogueClips[Index], Settings.volume);
-        await Task.Delay((int) (DialogueClips[Index].length * 1000));
-        if(Captions.transform.gameObject != null){
+        await Task.Delay((int)(DialogueClips[Index].length * 1000));
+        if (Captions.transform.gameObject != null)
+        {
             Captions.transform.gameObject.SetActive(false);
 
         }
@@ -103,17 +121,25 @@ public class SpecialInteractions : MonoBehaviour
     }
 
 
-    GameObject CheckView(){
-        
-        
-        Ray ray = cameraComp.ViewportPointToRay(new Vector3(0.5f , 0.5f , 0));
-        if(Physics.Raycast(ray, out RaycastHit hit)){
+    GameObject CheckView()
+    {
+
+
+        Ray ray = cameraComp.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
             return hit.transform.gameObject;
-        }else{
+        }
+        else
+        {
             return gameObject;
         }
-        
-        
+
+
+    }
+    
+    private void OnDestroy() {
+        ExitBroadcast.Pressed_Button -= Settings.Load;
 
     }
 

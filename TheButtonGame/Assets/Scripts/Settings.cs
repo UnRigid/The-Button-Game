@@ -3,9 +3,9 @@ using UnityEngine;
 
 public static class Settings
 {
-    public static float volume=.7f;
-    public static int ResolutionIndex=1;
-    public static int OriginIndex=0;
+    public static float volume = .7f;
+    public static int ResolutionIndex = 1;
+    public static int OriginIndex = 0;
 
     public static float Sensitivity = .7f;
 
@@ -13,6 +13,11 @@ public static class Settings
 
     public static int Slot = 1;
 
-    public delegate void LoadNextScene();  
-    public static LoadNextScene loadNextScene;  
+    public delegate void LoadNextScene();
+    public static LoadNextScene loadNextScene;
+
+    public static void Load()
+    {
+        loadNextScene?.Invoke();
+    }
 }
