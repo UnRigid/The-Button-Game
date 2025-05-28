@@ -4,15 +4,17 @@ public class DoorScript : MonoBehaviour , IInteraction
 {
 
     private Animator animator;
-    
-    private void Awake() {
-        this.GetComponent<Animator>();
+
+    private void Awake()
+    {
+        animator = this.transform.parent.gameObject.GetComponent<Animator>();        
     }
 
     public void Interact()
     {
-        Destroy(this.transform.gameObject.GetComponent<BoxCollider>());
+
         animator.SetTrigger("OpenDoor");
+        this.gameObject.layer = 0;
     }
 
 }

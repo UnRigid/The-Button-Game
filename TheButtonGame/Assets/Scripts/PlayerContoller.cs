@@ -55,8 +55,8 @@ public class PlayerContoller : MonoBehaviour
 
     private void Look(){
         Vector2 _InputRead = _PlayerControls.PlayerMovement.Look.ReadValue<Vector2>();
-        float _xDelta = _InputRead.x * Settings.Sensitivity * .5f * Time.fixedDeltaTime * LookMultiplier;
-        float _yDelta = _InputRead.y * Settings.Sensitivity * .5f * Time.fixedDeltaTime * LookMultiplier;
+        float _xDelta = _InputRead.x * Settings.Sensitivity * .7f * Time.fixedDeltaTime * LookMultiplier;
+        float _yDelta = _InputRead.y * Settings.Sensitivity * .7f * Time.fixedDeltaTime * LookMultiplier;
         
         //Lateral Rotation
         this.transform.Rotate(Vector3.up, _xDelta);
