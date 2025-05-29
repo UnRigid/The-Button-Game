@@ -268,9 +268,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpd: 7
+  SoundProbability: 0.05
   LookMultiplier: 30
   MaxAngle: 70
   MinAngle: 60
+  WalkSounds:
+  - {fileID: 8300000, guid: 559559f5059672449a3f6fe294468398, type: 3}
+  - {fileID: 8300000, guid: 0554566b732c3fa4cb3b14392eccf1d9, type: 3}
+  - {fileID: 8300000, guid: 78becaf4f0f6b6e4fb9d2d58fe893c02, type: 3}
+  - {fileID: 8300000, guid: da57890c6b88b3d48a58b4a184492efe, type: 3}
+  - {fileID: 8300000, guid: f6646bbc8eb79ed459c4a5f8ac02cfcb, type: 3}
+  - {fileID: 8300000, guid: c4d0642ce512a2c43b96eb719195f228, type: 3}
+  - {fileID: 8300000, guid: ea7257eb80e188648b75f5ffa3aa6ec3, type: 3}
+  - {fileID: 8300000, guid: 0bee0342d1d9b114ab9ded851005b37f, type: 3}
 --- !u!136 &6542219327623777263
 CapsuleCollider:
   m_ObjectHideFlags: 0

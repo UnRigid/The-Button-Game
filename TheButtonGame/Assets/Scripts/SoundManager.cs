@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 public enum SoundType
 {
     ButtonPress,
-    Walk,
     OpenDoor
 }
 
@@ -16,7 +15,9 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
     private AudioSource audioSource;
 
-    private void Awake() {  
+
+    private void Awake()
+    {
         if (instance != null && instance != this)
         {
             Destroy(instance);
@@ -28,19 +29,25 @@ public class SoundManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    private void Update()
+
+    public static void PlayCustomSound(AudioClip sound)
     {
-        
+        instance.audioSource.PlayOneShot(sound, Settings.volume);
     }
 
-
-    async void PlayFootsteps()
-    {   
-        int 
-        instance.audioSource.PlayOneShot(instance.SoundList[1], Settings.volume);
-        await Task.Delay((int)(instance.SoundList[1].length * 1000));
+    public static bool IsPlaying()
+    {
+        if (instance.audioSource.isPlaying)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
+    
     public static void PlaySound(/* Sound to play; Volume */ SoundType sound)
     {
         instance.audioSource.PlayOneShot(instance.SoundList[(int)sound], Settings.volume);

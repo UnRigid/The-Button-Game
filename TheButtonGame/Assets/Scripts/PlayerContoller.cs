@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 public class PlayerContoller : MonoBehaviour
 {
     
@@ -9,20 +11,26 @@ public class PlayerContoller : MonoBehaviour
     private static PlayerControls _PlayerControls;
     [Header("Movement")]
     public float MoveSpd=5f;
+    [SerializeField] float SoundProbability = .5f;
     
     
     [SerializeField] float LookMultiplier = 15f;
     public float MaxAngle = 80f;
     public float MinAngle = 80f;
 
-    private void Awake() {
+    [SerializeField] AudioClip[] WalkSounds;
+
+    private void Awake()
+    {
         GameObject[] PlayerInstances = GameObject.FindGameObjectsWithTag("Player");
-        foreach(GameObject Instance in PlayerInstances){
-            if(Instance != gameObject){
+        foreach (GameObject Instance in PlayerInstances)
+        {
+            if (Instance != gameObject)
+            {
                 Destroy(Instance);
             }
         }
-        
+
     }
 
     private void Start() {
@@ -38,18 +46,41 @@ public class PlayerContoller : MonoBehaviour
 
     }
 
-    private void FixedUpdate() {
+    async void PlayFootsteps()
+    {
+        if (!SoundManager.IsPlaying())
+        {
+            int Index = Random.Range(0, WalkSounds.Length);
+
+            SoundManager.PlayCustomSound(WalkSounds[Index]);
+            await Task.Delay((int)(WalkSounds[Index].length * 1000));
+        }
+        
+
+
+    }
+
+
+
+
+    private void FixedUpdate()
+    {
         Move();
         Look();
     }
 
-    private void Move(){
-        Vector2 _InputRead =  _PlayerControls.PlayerMovement.Move.ReadValue<Vector2>();
+    private void Move()
+    {
+        Vector2 _InputRead = _PlayerControls.PlayerMovement.Move.ReadValue<Vector2>();
         Vector3 MoveDirection = transform.forward * _InputRead.y + transform.right * _InputRead.x;
-        Vector3 _Move = new Vector3(MoveDirection.x , PlayerRB.linearVelocity.y , MoveDirection.z);
+        Vector3 _Move = new Vector3(MoveDirection.x, PlayerRB.linearVelocity.y, MoveDirection.z);
 
         PlayerRB.linearVelocity = _Move * MoveSpd * 20 * Time.fixedDeltaTime;
-        
+        // Debug.Log(PlayerRB.linearVelocity.magnitude);
+        if (Random.Range(0.0f, 1.0f) <= SoundProbability && PlayerRB.linearVelocity.magnitude >= 2f)
+        {
+            PlayFootsteps();
+        }
         
     }
 
