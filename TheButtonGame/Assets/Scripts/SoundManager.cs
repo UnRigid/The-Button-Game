@@ -1,7 +1,11 @@
 using UnityEngine;
+using System.Threading.Tasks;
 
-public enum SoundType{
-    ButtonPress
+public enum SoundType
+{
+    ButtonPress,
+    Walk,
+    OpenDoor
 }
 
 [RequireComponent(typeof(AudioSource))]
@@ -13,13 +17,33 @@ public class SoundManager : MonoBehaviour
     private AudioSource audioSource;
 
     private void Awake() {  
-        instance=this;
+        if (instance != null && instance != this)
+        {
+            Destroy(instance);
+        }
+        else
+        {
+            instance = this;
+        }
         audioSource = GetComponent<AudioSource>();
     }
 
+    private void Update()
+    {
+        
+    }
 
-    public static void PlaySound(/* Sound to play; Volume */ SoundType sound){
-        instance.audioSource.PlayOneShot(instance.SoundList[(int) sound], Settings.volume);
+
+    async void PlayFootsteps()
+    {   
+        int 
+        instance.audioSource.PlayOneShot(instance.SoundList[1], Settings.volume);
+        await Task.Delay((int)(instance.SoundList[1].length * 1000));
+    }
+
+    public static void PlaySound(/* Sound to play; Volume */ SoundType sound)
+    {
+        instance.audioSource.PlayOneShot(instance.SoundList[(int)sound], Settings.volume);
     }
 
 }
