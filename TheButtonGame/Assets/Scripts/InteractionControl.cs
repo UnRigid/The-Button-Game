@@ -90,7 +90,7 @@ public class InteractionControl : MonoBehaviour
 
     void DebugMulti(InputAction.CallbackContext callbackContext){
         Debug.Log("Debug Triggered");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void TogglePauseByPlayer(InputAction.CallbackContext callbackContext){

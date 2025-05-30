@@ -1,16 +1,17 @@
 using UnityEngine;
+using System;
 
-public class KeyScript : MonoBehaviour
+public class KeyScript : MonoBehaviour, IInteraction
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public static event Action PickUpKey;
+
+    
+
+    public void Interact()
     {
-        
+        PickUpKey?.Invoke();
+        Destroy(this.gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

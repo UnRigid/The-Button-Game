@@ -29,6 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Corridor4.unity
     guid: d5181658b70ab6c43932ac5001caaa8f
+  - enabled: 1
+    path: Assets/Scenes/Corridor5.unity
+    guid: 6037d08238585ca4395a17e258642aaf
+  - enabled: 1
+    path: Assets/Scenes/Corridor6.unity
+    guid: 2891d27e00ca79344a030acbca6ca9d7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

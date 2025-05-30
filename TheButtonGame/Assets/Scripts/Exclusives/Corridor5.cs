@@ -28,6 +28,7 @@ public class Corridor5 : MonoBehaviour
 
         audioSource = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<AudioSource>();
         Captions = GameObject.FindGameObjectWithTag("Captions");
+        Captions.SetActive(false);
 
 
         ExitBroadcast.Pressed_Button += PlayPressed;
