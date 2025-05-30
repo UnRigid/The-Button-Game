@@ -236,8 +236,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7704209518699722076}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -271,7 +271,7 @@ MonoBehaviour:
   SoundProbability: 0.05
   LookMultiplier: 30
   MaxAngle: 70
-  MinAngle: 60
+  MinAngle: 80
   WalkSounds:
   - {fileID: 8300000, guid: 559559f5059672449a3f6fe294468398, type: 3}
   - {fileID: 8300000, guid: 0554566b732c3fa4cb3b14392eccf1d9, type: 3}
@@ -318,4 +318,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractHolder: {fileID: 0}
   PauseMenu: {fileID: 0}
-  MaxDistance: 2
+  MaxDistance: 4
