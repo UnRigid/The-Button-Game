@@ -56,10 +56,18 @@ public class InteractionControl : MonoBehaviour
 
     private void Update() {
         if(!PauseMenu.activeSelf){
-            if(GetInteractable() != null && !IsInteracting){
-                InteractHolder.SetActive(true);
+            Transform transformIntteract = GetInteractable();
+            if (transformIntteract != null && !IsInteracting)
+            {
+                if (transformIntteract.TryGetComponent(out IInteraction interaction))
+                {
+                    InteractHolder.SetActive(true);
+                }
+                
 
-            }else{
+            }
+            else
+            {
                 InteractHolder.SetActive(false);
             }
         }
