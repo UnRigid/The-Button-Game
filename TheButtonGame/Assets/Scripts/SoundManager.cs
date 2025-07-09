@@ -4,7 +4,8 @@ using System.Threading.Tasks;
 public enum SoundType
 {
     ButtonPress,
-    OpenDoor
+    OpenDoor,
+    OpenCage
 }
 
 [RequireComponent(typeof(AudioSource))]
