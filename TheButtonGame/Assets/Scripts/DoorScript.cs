@@ -7,13 +7,13 @@ public class DoorScript : MonoBehaviour , IInteraction
 
     private void Awake()
     {
-        animator = this.transform.parent.gameObject.GetComponent<Animator>();        
+        animator = GameObject.FindGameObjectWithTag("Corridor").GetComponent<Animator>();        
     }
 
     public void Interact()
     {
 
-        animator.SetTrigger("OpenDoor");
+        animator.SetTrigger("OpenDoor"+transform.name);
         this.gameObject.layer = 0;
     }
 

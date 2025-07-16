@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f157bf0784f00fe41beb7c9da7ac872f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: 2
+  sound: 1
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ AnimatorController:
   m_Name: door
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: OpenDoor
+  - m_Name: OpenDoor1
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -102,7 +102,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: OpenDoor
+    m_ConditionEvent: OpenDoor1
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 611795872528003297}

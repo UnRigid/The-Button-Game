@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CorridorHidden
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 71a61a6f2c6e33045bebf26329c3d68c, type: 3}
+      propertyPath: m_TagString
+      value: Corridor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

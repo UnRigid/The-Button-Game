@@ -12,6 +12,7 @@ TagManager:
   - SoundManager
   - PauseMenu
   - BlackScreen
+  - Corridor
   layers:
   - Default
   - TransparentFX

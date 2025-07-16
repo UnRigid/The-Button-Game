@@ -1154,18 +1154,6 @@ PrefabInstance:
       value: CorridorBendy
       objectReference: {fileID: 0}
     - target: {fileID: 4091570096929215754, guid: 5facbad0f62ba884c922d2f55d897a57, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 7.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4091570096929215754, guid: 5facbad0f62ba884c922d2f55d897a57, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 7.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4091570096929215754, guid: 5facbad0f62ba884c922d2f55d897a57, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 7.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4091570096929215754, guid: 5facbad0f62ba884c922d2f55d897a57, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}

@@ -31,8 +31,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Anim|OpenDoor
-      takeName: Anim|OpenDoor
+      name: 2-R
+      takeName: Anim.001|OpenDoor.001
       internalID: 4204527522365519074
       firstFrame: 0
       lastFrame: 39
@@ -60,9 +60,38 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Anim.001|OpenDoor
-      takeName: Anim.001|OpenDoor
+      name: 2-L
+      takeName: Anim.002|OpenDoor.001
       internalID: 7377951503261803023
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: 1
+      takeName: Anim.004|OpenDoor.001
+      internalID: -800567151569459940
       firstFrame: 0
       lastFrame: 39
       wrapMode: 0
