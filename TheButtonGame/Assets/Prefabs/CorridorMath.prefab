@@ -80,6 +80,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Corridor
       objectReference: {fileID: 0}
+    - target: {fileID: 2674951466746616315, guid: 2d365e0b85946cb4d9117785853c037d, type: 3}
+      propertyPath: m_Name
+      value: F
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521428246771590472, guid: 2d365e0b85946cb4d9117785853c037d, type: 3}
+      propertyPath: m_Name
+      value: F
+      objectReference: {fileID: 0}
     - target: {fileID: 4521428246771590472, guid: 2d365e0b85946cb4d9117785853c037d, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -94,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5092708244707826562, guid: 2d365e0b85946cb4d9117785853c037d, type: 3}
       propertyPath: m_Name
-      value: 2-RP
+      value: Door.001
       objectReference: {fileID: 0}
     - target: {fileID: 8106627530218128191, guid: 2d365e0b85946cb4d9117785853c037d, type: 3}
       propertyPath: m_Name
@@ -106,11 +114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8617835151230357669, guid: 2d365e0b85946cb4d9117785853c037d, type: 3}
       propertyPath: m_Name
-      value: 2-LP
+      value: Door.002
       objectReference: {fileID: 0}
     - target: {fileID: 8839568720538273707, guid: 2d365e0b85946cb4d9117785853c037d, type: 3}
       propertyPath: m_Name
-      value: 1P
+      value: Door.004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -152,6 +160,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4521428246771590472, guid: 2d365e0b85946cb4d9117785853c037d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8279348229845604124}
+    - targetCorrespondingSourceObject: {fileID: 4521428246771590472, guid: 2d365e0b85946cb4d9117785853c037d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8247687098965905551}
     - targetCorrespondingSourceObject: {fileID: -3117803605693100684, guid: 2d365e0b85946cb4d9117785853c037d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6161027471407272424}
@@ -185,6 +196,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8814885, y: 1.4, z: 0.08984802}
   m_Center: {x: 0.4004557, y: -0.0114192115, z: 0.000032782547}
+--- !u!114 &8247687098965905551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216153950717791330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d780ef5f82b150429344fd6ccd34be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2494601986453345403 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d365e0b85946cb4d9117785853c037d, type: 3}

@@ -520,23 +520,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605635158}
   m_CullTransparentMesh: 1
---- !u!1 &632480714 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1216153950717791330, guid: 21b27ff5a3de7e441bd3cb7c65feeba2, type: 3}
-  m_PrefabInstance: {fileID: 3150610138637343913}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &632480719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632480714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d780ef5f82b150429344fd6ccd34be2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &756087502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1166,14 +1149,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 810829027812290769, guid: 21b27ff5a3de7e441bd3cb7c65feeba2, type: 3}
-      propertyPath: m_Name
-      value: F
-      objectReference: {fileID: 0}
-    - target: {fileID: 1216153950717791330, guid: 21b27ff5a3de7e441bd3cb7c65feeba2, type: 3}
-      propertyPath: m_Name
-      value: F
-      objectReference: {fileID: 0}
     - target: {fileID: 2494601986453345403, guid: 21b27ff5a3de7e441bd3cb7c65feeba2, type: 3}
       propertyPath: m_Name
       value: CorridorMath
@@ -1221,10 +1196,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1216153950717791330, guid: 21b27ff5a3de7e441bd3cb7c65feeba2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 632480719}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21b27ff5a3de7e441bd3cb7c65feeba2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
