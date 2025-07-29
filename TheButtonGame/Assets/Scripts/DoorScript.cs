@@ -7,7 +7,8 @@ public class DoorScript : MonoBehaviour , IInteraction
 
     private void Awake()
     {
-        animator = GameObject.FindGameObjectWithTag("Corridor").GetComponent<Animator>();        
+        animator = GameObject.FindGameObjectWithTag("Corridor").GetComponent<Animator>();
+
     }
 
     public void Interact()

@@ -11,6 +11,7 @@ public class PlayerContoller : MonoBehaviour
     private static PlayerControls _PlayerControls;
     [Header("Movement")]
     public float MoveSpd=5f;
+    [SerializeField] float SprintSpd = 2f;
     [SerializeField] float SoundProbability = .5f;
     
     
@@ -42,7 +43,6 @@ public class PlayerContoller : MonoBehaviour
 
         
         SaveManager.SaveProgress(Settings.Slot, SceneManager.GetActiveScene().buildIndex);
-        
 
     }
 
@@ -69,19 +69,21 @@ public class PlayerContoller : MonoBehaviour
         Look();
     }
 
+    
+
     private void Move()
     {
         Vector2 _InputRead = _PlayerControls.PlayerMovement.Move.ReadValue<Vector2>();
         Vector3 MoveDirection = transform.forward * _InputRead.y + transform.right * _InputRead.x;
-        Vector3 _Move = new Vector3(MoveDirection.x, PlayerRB.linearVelocity.y, MoveDirection.z);
+        Vector3 _Move = new Vector3(MoveDirection.x, 0, MoveDirection.z) * (1 + SprintSpd * _PlayerControls.PlayerMovement.Sprint.ReadValue<float>());
 
-        PlayerRB.linearVelocity = _Move * MoveSpd * 20 * Time.fixedDeltaTime;
+        PlayerRB.linearVelocity = _Move * MoveSpd * 20 * Time.fixedDeltaTime + new Vector3(0, PlayerRB.linearVelocity.y, 0);
         // Debug.Log(PlayerRB.linearVelocity.magnitude);
         if (Random.Range(0.0f, 1.0f) <= SoundProbability && PlayerRB.linearVelocity.magnitude >= 2f)
         {
             PlayFootsteps();
         }
-        
+
     }
 
     private void Look(){
