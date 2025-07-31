@@ -18,23 +18,35 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu/Saves.unity
     guid: 97e5e736fa33f3842aaa07e02498c2ea
   - enabled: 1
-    path: Assets/Scenes/Corridor1.unity
+    path: Assets/Scenes/CorridorIntro.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Corridor2.unity
+    path: Assets/Scenes/CorridorCorner.unity
     guid: 0fd90cdcd1ecf1447b2f207dd8fcab0a
   - enabled: 1
-    path: Assets/Scenes/Corridor3.unity
+    path: Assets/Scenes/CorridorTallButton.unity
     guid: 5633ba9a7723a2b479064d2e768ebc87
   - enabled: 1
-    path: Assets/Scenes/Corridor4.unity
+    path: Assets/Scenes/CorridorMirror.unity
+    guid: a14b8916be52e28488f839497e256e7b
+  - enabled: 1
+    path: Assets/Scenes/CorridorCurvy.unity
     guid: d5181658b70ab6c43932ac5001caaa8f
   - enabled: 1
-    path: Assets/Scenes/Corridor5.unity
+    path: Assets/Scenes/CorridorRestroom.unity
     guid: 6037d08238585ca4395a17e258642aaf
   - enabled: 1
-    path: Assets/Scenes/Corridor6.unity
+    path: Assets/Scenes/CorridorCaged.unity
     guid: 2891d27e00ca79344a030acbca6ca9d7
+  - enabled: 1
+    path: Assets/Scenes/CorridorDodgeball.unity
+    guid: 78f625653a2422e4595bbaacff23afd3
+  - enabled: 1
+    path: Assets/Scenes/CorridorMath.unity
+    guid: 88bf687e52a147540b8b676b884d574b
+  - enabled: 1
+    path: Assets/Scenes/CorridorDonut.unity
+    guid: ee6a2b05056b5e94a98e19366853ded5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
